@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Archive overview</title><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' rel='stylesheet'><style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:14px;line-height:1.5;color:#1A1A1A;background:#F7F6F3;
+}
+code,.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}
+header{
+  background:#FFFFFF;border-bottom:1px solid #E2E0DB;
+  padding:14px 24px;display:flex;align-items:baseline;gap:14px;
+}
+header .wm{font-size:16px;font-weight:700;letter-spacing:-0.02em}
+header .wm span{color:#A3A3A3}
+header .sub{font-size:12px;color:#A3A3A3}
+main{max-width:1100px;margin:0 auto;padding:24px}
+h1{font-size:22px;font-weight:700;letter-spacing:-0.01em;margin:0 0 4px}
+h2{font-size:14px;font-weight:700;color:#7A7A7A;text-transform:uppercase;
+   letter-spacing:0.08em;margin:32px 0 10px}
+.lead{font-size:13px;color:#4A4A4A;margin-bottom:18px}
+.back{font-size:12px;color:#2E6FCC;text-decoration:none;margin-bottom:14px;display:inline-block}
+.back:hover{text-decoration:underline}
+.meta{
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:#7A7A7A;
+  margin-bottom:14px;line-height:1.6;
+}
+.stats{
+  display:flex;flex-wrap:wrap;gap:24px;margin:8px 0 24px;
+  padding:14px 16px;background:#FFFFFF;border:1px solid #E2E0DB;border-radius:10px;
+}
+.stat{display:flex;align-items:baseline;gap:6px}
+.stat .n{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600}
+.stat .l{font-size:10px;color:#A3A3A3;text-transform:uppercase;letter-spacing:0.06em;font-weight:500}
+input.search{
+  width:100%;max-width:360px;padding:8px 11px;font-size:13px;
+  border:1px solid #E2E0DB;border-radius:7px;background:#FFFFFF;outline:none;
+  font-family:inherit;margin-bottom:10px;
+}
+input.search:focus{border-color:#1A1A1A}
+table{
+  width:100%;border-collapse:collapse;
+  background:#FFFFFF;border:1px solid #E2E0DB;border-radius:10px;overflow:hidden;
+  font-size:13px;
+}
+thead{background:#F0EFEC;border-bottom:1px solid #E2E0DB}
+th{padding:11px 14px;text-align:left;font-size:10px;font-weight:700;color:#7A7A7A;
+   text-transform:uppercase;letter-spacing:0.07em}
+td{padding:11px 14px;border-bottom:1px solid #ECEAE5;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#F0EFEC}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td a{color:#1A1A1A;text-decoration:none;font-weight:500}
+td a:hover{color:#2E6FCC;text-decoration:underline}
+td code{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4A4A4A}
+.pill{
+  display:inline-block;padding:2px 8px;border-radius:100px;
+  font-size:11px;font-weight:500;background:#F0EFEC;color:#4A4A4A;
+}
+.pill.ok{background:#EDFAF3;color:#2E8B57}
+.pill.warn{background:#FFF4EB;color:#CC6D2E}
+.pill+.pill{margin-left:4px}
+footer{
+  max-width:1100px;margin:24px auto;padding:0 24px 32px;
+  font-size:11px;color:#A3A3A3;
+}
+</style></head><body><header><div class='wm'>butter<span>.</span>offload archive</div><span class='sub'>7 drives &amp;middot; 44 projects</span></header><main><h1>Archive overview</h1>
+<div class='lead'>7 drives &middot; 40 clients &middot; 44 projects &middot; 55.72 TiB total</div>
+<div class='stats'>
+<div class='stat'><span class='n'>7</span><span class='l'>Drives</span></div>
+<div class='stat'><span class='n'>40</span><span class='l'>Clients</span></div>
+<div class='stat'><span class='n'>44</span><span class='l'>Projects</span></div>
+<div class='stat'><span class='n'>0</span><span class='l'>Files</span></div>
+<div class='stat'><span class='n'>55.72 TiB</span><span class='l'>Data</span></div>
+</div>
+<h2>Drives</h2>
+<input class='search' id='dsearch' placeholder='filter by label / serial / volume...'>
+<table id='dtable'><thead><tr><th>Label</th><th>Status</th><th>Serial</th><th>Vol</th><th class='num'>Projects</th><th class='num'>Files</th><th class='num'>Size</th></tr></thead><tbody>
+<tr><td><a href='drives/COLD-04.html'>COLD-04</a></td><td><span class='pill ok'>mounted H:</span></td><td><code></code></td><td><code></code></td><td class='num'>6</td><td class='num'>0</td><td class='num'>8.99 TiB</td></tr>
+<tr><td><a href='drives/COLD-05.html'>COLD-05</a></td><td><span class='pill ok'>mounted I:</span></td><td><code></code></td><td><code></code></td><td class='num'>12</td><td class='num'>0</td><td class='num'>9.04 TiB</td></tr>
+<tr><td><a href='drives/COLD-06.html'>COLD-06</a></td><td><span class='pill ok'>mounted J:</span></td><td><code></code></td><td><code></code></td><td class='num'>6</td><td class='num'>0</td><td class='num'>8.97 TiB</td></tr>
+<tr><td><a href='drives/COLD-07.html'>COLD-07</a></td><td><span class='pill ok'>mounted K:</span></td><td><code></code></td><td><code></code></td><td class='num'>7</td><td class='num'>0</td><td class='num'>9.09 TiB</td></tr>
+<tr><td><a href='drives/COLD-08.html'>COLD-08</a></td><td><span class='pill ok'>mounted L:</span></td><td><code></code></td><td><code></code></td><td class='num'>11</td><td class='num'>0</td><td class='num'>9.09 TiB</td></tr>
+<tr><td><a href='drives/COLD-09.html'>COLD-09</a></td><td><span class='pill ok'>mounted M:</span></td><td><code></code></td><td><code></code></td><td class='num'>1</td><td class='num'>0</td><td class='num'>4.91 TiB</td></tr>
+<tr><td><a href='drives/COLD-10.html'>COLD-10</a></td><td><span class='pill ok'>mounted N:</span></td><td><code></code></td><td><code></code></td><td class='num'>1</td><td class='num'>0</td><td class='num'>5.62 TiB</td></tr>
+</tbody></table>
+<h2>Clients</h2>
+<input class='search' id='csearch' placeholder='filter clients...'>
+<table id='ctable'><thead><tr><th>Client</th><th class='num'>Projects</th><th class='num'>Size</th><th>Drives</th></tr></thead><tbody>
+<tr><td><a href='clients/ALASKA.html'>ALASKA</a></td><td class='num'>1</td><td class='num'>12.80 GiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Austin_and_Kenidy_Wedding_(Handycam).html'>Austin and Kenidy Wedding (Handycam)</a></td><td class='num'>2</td><td class='num'>541.29 KiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Axon.html'>Axon</a></td><td class='num'>1</td><td class='num'>167.77 KiB</td><td><span class='pill'>COLD-04</span></td></tr>
+<tr><td><a href='clients/Beyond_the_Gates.html'>Beyond the Gates</a></td><td class='num'>1</td><td class='num'>1.46 TiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/BMW.html'>BMW</a></td><td class='num'>1</td><td class='num'>6.08 MiB</td><td><span class='pill'>COLD-04</span></td></tr>
+<tr><td><a href='clients/Boogie_T.html'>Boogie T</a></td><td class='num'>1</td><td class='num'>106.69 GiB</td><td><span class='pill'>COLD-07</span></td></tr>
+<tr><td><a href='clients/BUKU.html'>BUKU</a></td><td class='num'>1</td><td class='num'>114.19 KiB</td><td><span class='pill'>COLD-06</span></td></tr>
+<tr><td><a href='clients/Cannabis_1.html'>Cannabis 1</a></td><td class='num'>1</td><td class='num'>45.19 GiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/CHALRESTHEFIRST.html'>CHALRESTHEFIRST</a></td><td class='num'>1</td><td class='num'>3.39 TiB</td><td><span class='pill'>COLD-07</span></td></tr>
+<tr><td><a href='clients/Colter_Wall.html'>Colter Wall</a></td><td class='num'>1</td><td class='num'>4.91 TiB</td><td><span class='pill'>COLD-09</span></td></tr>
+<tr><td><a href='clients/duplicates.html'>duplicates</a></td><td class='num'>1</td><td class='num'>10.00 KiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Eagle_River_FD.html'>Eagle River FD</a></td><td class='num'>1</td><td class='num'>170.63 GiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/Electric_Range_Moon_Hooch.html'>Electric Range Moon Hooch</a></td><td class='num'>1</td><td class='num'>6.49 GiB</td><td><span class='pill'>COLD-06</span></td></tr>
+<tr><td><a href='clients/Foo_Dog_Motorcycles.html'>Foo Dog Motorcycles</a></td><td class='num'>2</td><td class='num'>1.35 TiB</td><td><span class='pill'>COLD-04</span><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/FREESKIER_MAGAZINE.html'>FREESKIER MAGAZINE</a></td><td class='num'>1</td><td class='num'>4.44 GiB</td><td><span class='pill'>COLD-04</span></td></tr>
+<tr><td><a href='clients/Funkstatik.html'>Funkstatik</a></td><td class='num'>1</td><td class='num'>270.62 MiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/GRiZ.html'>GRiZ</a></td><td class='num'>1</td><td class='num'>5.44 TiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/Hayden_James.html'>Hayden James</a></td><td class='num'>1</td><td class='num'>424.84 MiB</td><td><span class='pill'>COLD-06</span></td></tr>
+<tr><td><a href='clients/In_This_Moment.html'>In This Moment</a></td><td class='num'>1</td><td class='num'>5.53 TiB</td><td><span class='pill'>COLD-07</span></td></tr>
+<tr><td><a href='clients/Jay_Rogovin.html'>Jay Rogovin</a></td><td class='num'>2</td><td class='num'>484.93 MiB</td><td><span class='pill'>COLD-06</span><span class='pill'>COLD-07</span></td></tr>
+<tr><td><a href='clients/Just_Egg.html'>Just Egg</a></td><td class='num'>1</td><td class='num'>23.89 MiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Kidness.html'>Kidness</a></td><td class='num'>1</td><td class='num'>12.85 MiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/LP_GIOBBI.html'>LP GIOBBI</a></td><td class='num'>1</td><td class='num'>3.38 TiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/LSZEE.html'>LSZEE</a></td><td class='num'>1</td><td class='num'>7.81 TiB</td><td><span class='pill'>COLD-06</span></td></tr>
+<tr><td><a href='clients/Movies.html'>Movies</a></td><td class='num'>2</td><td class='num'>15.40 KiB</td><td><span class='pill'>COLD-05</span><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/Opiuo.html'>Opiuo</a></td><td class='num'>1</td><td class='num'>108.68 GiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/Papadosio.html'>Papadosio</a></td><td class='num'>1</td><td class='num'>7.64 TiB</td><td><span class='pill'>COLD-04</span></td></tr>
+<tr><td><a href='clients/Photos.html'>Photos</a></td><td class='num'>1</td><td class='num'>52.00 KiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/Pretty_Lights.html'>Pretty Lights</a></td><td class='num'>1</td><td class='num'>1.16 TiB</td><td><span class='pill'>COLD-06</span></td></tr>
+<tr><td><a href='clients/Schelling_Point_Amsterdam.html'>Schelling Point Amsterdam</a></td><td class='num'>1</td><td class='num'>1.43 MiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/Slightly_Stoopid.html'>Slightly Stoopid</a></td><td class='num'>1</td><td class='num'>5.62 TiB</td><td><span class='pill'>COLD-10</span></td></tr>
+<tr><td><a href='clients/Stock_keepers.html'>Stock keepers</a></td><td class='num'>1</td><td class='num'>1.21 GiB</td><td><span class='pill'>COLD-08</span></td></tr>
+<tr><td><a href='clients/STS9.html'>STS9</a></td><td class='num'>1</td><td class='num'>7.52 TiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Swirling_Stories.html'>Swirling Stories</a></td><td class='num'>1</td><td class='num'>280.00 KiB</td><td><span class='pill'>COLD-07</span></td></tr>
+<tr><td><a href='clients/The_Alliance.html'>The Alliance</a></td><td class='num'>1</td><td class='num'>232.10 MiB</td><td><span class='pill'>COLD-04</span></td></tr>
+<tr><td><a href='clients/The_Funk_Hunters.html'>The Funk Hunters</a></td><td class='num'>1</td><td class='num'>98.48 MiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Tripp_St.html'>Tripp St</a></td><td class='num'>1</td><td class='num'>71.28 GiB</td><td><span class='pill'>COLD-07</span></td></tr>
+<tr><td><a href='clients/Wandr_Bag.html'>Wandr Bag</a></td><td class='num'>1</td><td class='num'>2.42 MiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Weston_Snowboards.html'>Weston Snowboards</a></td><td class='num'>1</td><td class='num'>274.02 KiB</td><td><span class='pill'>COLD-05</span></td></tr>
+<tr><td><a href='clients/Wreckno.html'>Wreckno</a></td><td class='num'>1</td><td class='num'>5.79 MiB</td><td><span class='pill'>COLD-07</span></td></tr>
+</tbody></table>
+<script>function filterTable(inputId, tableId){var i=document.getElementById(inputId),t=document.getElementById(tableId);i.addEventListener('input',function(){var q=i.value.toLowerCase();for(var r of t.tBodies[0].rows){r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';}});}filterTable('dsearch','dtable');filterTable('csearch','ctable');</script></main><footer>generated 2026-05-26 15:05</footer></body></html>
