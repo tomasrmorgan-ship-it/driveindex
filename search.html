@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>File search</title><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' rel='stylesheet'><style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:14px;line-height:1.5;color:#1A1A1A;background:#F7F6F3;
+}
+code,.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}
+header{
+  background:#FFFFFF;border-bottom:1px solid #E2E0DB;
+  padding:14px 24px;display:flex;align-items:baseline;gap:14px;
+}
+header .wm{font-size:16px;font-weight:700;letter-spacing:-0.02em}
+header .wm span{color:#A3A3A3}
+header .sub{font-size:12px;color:#A3A3A3}
+main{max-width:1100px;margin:0 auto;padding:24px}
+h1{font-size:22px;font-weight:700;letter-spacing:-0.01em;margin:0 0 4px}
+h2{font-size:14px;font-weight:700;color:#7A7A7A;text-transform:uppercase;
+   letter-spacing:0.08em;margin:32px 0 10px}
+.lead{font-size:13px;color:#4A4A4A;margin-bottom:18px}
+.back{font-size:12px;color:#2E6FCC;text-decoration:none;margin-bottom:14px;display:inline-block}
+.back:hover{text-decoration:underline}
+.meta{
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:#7A7A7A;
+  margin-bottom:14px;line-height:1.6;
+}
+.stats{
+  display:flex;flex-wrap:wrap;gap:24px;margin:8px 0 24px;
+  padding:14px 16px;background:#FFFFFF;border:1px solid #E2E0DB;border-radius:10px;
+}
+.stat{display:flex;align-items:baseline;gap:6px}
+.stat .n{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600}
+.stat .l{font-size:10px;color:#A3A3A3;text-transform:uppercase;letter-spacing:0.06em;font-weight:500}
+input.search{
+  width:100%;max-width:360px;padding:8px 11px;font-size:13px;
+  border:1px solid #E2E0DB;border-radius:7px;background:#FFFFFF;outline:none;
+  font-family:inherit;margin-bottom:10px;
+}
+input.search:focus{border-color:#1A1A1A}
+table{
+  width:100%;border-collapse:collapse;
+  background:#FFFFFF;border:1px solid #E2E0DB;border-radius:10px;overflow:hidden;
+  font-size:13px;
+}
+thead{background:#F0EFEC;border-bottom:1px solid #E2E0DB}
+th{padding:11px 14px;text-align:left;font-size:10px;font-weight:700;color:#7A7A7A;
+   text-transform:uppercase;letter-spacing:0.07em}
+td{padding:11px 14px;border-bottom:1px solid #ECEAE5;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#F0EFEC}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td a{color:#1A1A1A;text-decoration:none;font-weight:500}
+td a:hover{color:#2E6FCC;text-decoration:underline}
+td code{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4A4A4A}
+.pill{
+  display:inline-block;padding:2px 8px;border-radius:100px;
+  font-size:11px;font-weight:500;background:#F0EFEC;color:#4A4A4A;
+}
+.pill.ok{background:#EDFAF3;color:#2E8B57}
+.pill.warn{background:#FFF4EB;color:#CC6D2E}
+.pill+.pill{margin-left:4px}
+footer{
+  max-width:1100px;margin:24px auto;padding:0 24px 32px;
+  font-size:11px;color:#A3A3A3;
+}
+</style></head><body><header><div class='wm'>butter<span>.</span>offload archive</div><span class='sub'>search across all drives</span></header><main>
+<a class='back' href='index.html'>&larr; overview</a>
+<h1>File search</h1>
+<p class='lead'>Search across all archived files. Data loaded from transfer logs.</p>
+
+<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">
+  <input class='search' id='q' placeholder='search filenames or paths...'
+         style='max-width:500px;margin-bottom:0;font-size:15px;padding:10px 14px'>
+  <span id='status' style='font-size:12px;color:#A3A3A3'></span>
+</div>
+
+<div id='info' style='font-size:12px;color:#7A7A7A;margin-bottom:14px'></div>
+
+<table id='results' style='display:none'>
+<thead><tr>
+  <th>Drive</th><th>File</th><th>Path</th>
+</tr></thead>
+<tbody id='tbody'></tbody>
+</table>
+
+<div id='noresults' style='display:none;padding:24px;text-align:center;color:#7A7A7A;font-size:14px'>
+  No matches found.
+</div>
+
+<script>
+(function(){
+  var allFiles = [];
+  var loaded = 0;
+  var totalDrives = 0;
+  var totalFiles = 0;
+  var manifest = null;
+  var searchTimer = null;
+  var MAX_RESULTS = 500;
+
+  var q = document.getElementById('q');
+  var status = document.getElementById('status');
+  var info = document.getElementById('info');
+  var tbody = document.getElementById('tbody');
+  var table = document.getElementById('results');
+  var noresults = document.getElementById('noresults');
+
+  function updateStatus(){
+    if(loaded<totalDrives){
+      status.textContent = 'Loading... '+loaded+'/'+totalDrives+' drives ('+allFiles.length.toLocaleString()+' files)';
+    } else {
+      status.textContent = allFiles.length.toLocaleString()+' files indexed';
+    }
+  }
+
+  function doSearch(){
+    var term = q.value.trim().toLowerCase();
+    if(term.length < 2){
+      table.style.display='none';
+      noresults.style.display='none';
+      info.textContent='Type at least 2 characters to search.';
+      return;
+    }
+
+    var hits = [];
+    var terms = term.split(/\s+/);
+    for(var i=0;i<allFiles.length && hits.length<MAX_RESULTS;i++){
+      var f = allFiles[i];
+      var lower = f[1];
+      var match = true;
+      for(var t=0;t<terms.length;t++){
+        if(lower.indexOf(terms[t])<0){ match=false; break; }
+      }
+      if(match) hits.push(f);
+    }
+
+    if(hits.length===0){
+      table.style.display='none';
+      noresults.style.display='block';
+      info.textContent='';
+      return;
+    }
+
+    noresults.style.display='none';
+    table.style.display='';
+    var showing = hits.length < MAX_RESULTS ? hits.length : MAX_RESULTS+'+';
+    info.textContent = showing + ' results';
+
+    var html = '';
+    for(var i=0;i<hits.length;i++){
+      var drive = hits[i][0];
+      var path = hits[i][2];
+      var parts = path.split(/[/\\]/);
+
+      var fname = parts[parts.length-1];
+      var dir = parts.slice(0,-1).join('/');
+      html += '<tr><td><a href="drives/'+drive+'.html">'+drive+'</a></td>'
+            + '<td style="font-weight:500">'+escHtml(fname)+'</td>'
+            + '<td><code>'+escHtml(dir)+'</code></td></tr>';
+    }
+    tbody.innerHTML = html;
+  }
+
+  function escHtml(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  q.addEventListener('input', function(){
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(doSearch, 200);
+  });
+
+  fetch('data/manifest.json').then(function(r){return r.json()}).then(function(m){
+    manifest = m;
+    totalFiles = m.total_files;
+    var drives = Object.keys(m.drives).sort();
+    totalDrives = drives.length;
+    updateStatus();
+
+    function loadNext(idx){
+      if(idx >= drives.length) return;
+      var label = drives[idx];
+      var chunk = m.drives[label].chunk;
+      fetch('data/'+chunk).then(function(r){return r.json()}).then(function(data){
+        for(var i=0;i<data.files.length;i++){
+          var p = data.files[i];
+          allFiles.push([label, p.toLowerCase(), p]);
+        }
+        loaded++;
+        updateStatus();
+        if(q.value.trim().length >= 2) doSearch();
+        loadNext(idx+1);
+      });
+    }
+    loadNext(0);
+  });
+})();
+</script>
+</main><footer>generated 2026-07-31 12:16</footer><script>function filterTable(inputId, tableId){var i=document.getElementById(inputId),t=document.getElementById(tableId);if(!i||!t)return;i.addEventListener('input',function(){var q=i.value.toLowerCase();for(var r of t.tBodies[0].rows){r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';}});}</script></body></html>

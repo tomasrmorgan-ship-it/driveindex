@@ -1,0 +1,141 @@
+{
+  "generated": "2026-07-31 12:12:50",
+  "total_files": 715088,
+  "drives": {
+    "COLD-01": {
+      "file_count": 3185,
+      "chunk": "COLD-01.json",
+      "size_kb": 261.5
+    },
+    "COLD-015": {
+      "file_count": 23640,
+      "chunk": "COLD-015.json",
+      "size_kb": 2847.1
+    },
+    "COLD-016": {
+      "file_count": 42703,
+      "chunk": "COLD-016.json",
+      "size_kb": 3935.5
+    },
+    "COLD-017": {
+      "file_count": 110870,
+      "chunk": "COLD-017.json",
+      "size_kb": 8813.6
+    },
+    "COLD-018": {
+      "file_count": 2039,
+      "chunk": "COLD-018.json",
+      "size_kb": 226.7
+    },
+    "COLD-019": {
+      "file_count": 28849,
+      "chunk": "COLD-019.json",
+      "size_kb": 3855.7
+    },
+    "COLD-02": {
+      "file_count": 4068,
+      "chunk": "COLD-02.json",
+      "size_kb": 234.6
+    },
+    "COLD-020": {
+      "file_count": 74121,
+      "chunk": "COLD-020.json",
+      "size_kb": 8610.0
+    },
+    "COLD-021": {
+      "file_count": 112041,
+      "chunk": "COLD-021.json",
+      "size_kb": 9098.3
+    },
+    "COLD-022": {
+      "file_count": 14750,
+      "chunk": "COLD-022.json",
+      "size_kb": 1256.5
+    },
+    "COLD-023": {
+      "file_count": 8196,
+      "chunk": "COLD-023.json",
+      "size_kb": 1012.3
+    },
+    "COLD-024": {
+      "file_count": 5597,
+      "chunk": "COLD-024.json",
+      "size_kb": 602.7
+    },
+    "COLD-025": {
+      "file_count": 19411,
+      "chunk": "COLD-025.json",
+      "size_kb": 2924.3
+    },
+    "COLD-026": {
+      "file_count": 16495,
+      "chunk": "COLD-026.json",
+      "size_kb": 1018.9
+    },
+    "COLD-027": {
+      "file_count": 12470,
+      "chunk": "COLD-027.json",
+      "size_kb": 892.9
+    },
+    "COLD-03": {
+      "file_count": 6697,
+      "chunk": "COLD-03.json",
+      "size_kb": 521.0
+    },
+    "COLD-04": {
+      "file_count": 13494,
+      "chunk": "COLD-04.json",
+      "size_kb": 1125.2
+    },
+    "COLD-05": {
+      "file_count": 18575,
+      "chunk": "COLD-05.json",
+      "size_kb": 2640.3
+    },
+    "COLD-06": {
+      "file_count": 18664,
+      "chunk": "COLD-06.json",
+      "size_kb": 1890.2
+    },
+    "COLD-07": {
+      "file_count": 18200,
+      "chunk": "COLD-07.json",
+      "size_kb": 1408.6
+    },
+    "COLD-08": {
+      "file_count": 55904,
+      "chunk": "COLD-08.json",
+      "size_kb": 4456.5
+    },
+    "COLD-09": {
+      "file_count": 17273,
+      "chunk": "COLD-09.json",
+      "size_kb": 2191.7
+    },
+    "COLD-10": {
+      "file_count": 43148,
+      "chunk": "COLD-10.json",
+      "size_kb": 4675.9
+    },
+    "COLD-11": {
+      "file_count": 4576,
+      "chunk": "COLD-11.json",
+      "size_kb": 367.0
+    },
+    "COLD-12": {
+      "file_count": 4564,
+      "chunk": "COLD-12.json",
+      "size_kb": 424.3
+    },
+    "COLD-13": {
+      "file_count": 20028,
+      "chunk": "COLD-13.json",
+      "size_kb": 2891.2
+    },
+    "COLD-14": {
+      "file_count": 15530,
+      "chunk": "COLD-14.json",
+      "size_kb": 1505.8
+    }
+  }
+}
